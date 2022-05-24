@@ -58,7 +58,13 @@ export function collisionDetection(spaces:Array<SpaceD3>,debug=false){
 
 }
 
-function cross(rect1,rect2){
+interface Rect{
+    left:number
+    right:number
+    top: number,
+    bottom: number
+}
+function cross(rect1:Rect,rect2:Rect){
     const cross = (rect1.left <= rect2.right && rect2.right <= rect1.right && rect1.top <= rect2.bottom  && rect2.bottom<= rect1.bottom)||
         (rect1.left <= rect2.left && rect2.left <= rect1.right && rect1.top <= rect2.bottom && rect2.bottom <= rect1.bottom)||
         (rect1.left <= rect2.right && rect2.right <= rect1.right && rect1.top <= rect2.top&&rect2.top <= rect1.bottom)||
